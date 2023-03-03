@@ -1,0 +1,12 @@
+<div>
+  <ng-container *ngIf="showSummary; else baseTemplate">
+    <summary (on-summary-close)="onSummaryClose()"></summary>
+  </ng-container>
+
+  <ng-template #baseTemplate>
+    <div>Product list:</div>
+    <list [data]="products$" (add-to-cart)="onAddToCart($event)"></list>
+    <hr />
+    <cart [cart]="cartItems" (place-order)="onPlaceOrder()"></cart>
+  </ng-template>
+</div>

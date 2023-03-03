@@ -1,0 +1,15 @@
+<div>
+  <span>Cart ({{ amountOfItems }})</span>
+  <br />
+  <span class="total">Total: {{ total | number: '1.2-2' }}</span>
+  <br />
+  <a (click)="toggleCart()">{{ cartStatus }}</a>
+</div>
+
+<div *ngIf="showCart">
+  <div class="cart-element" *ngFor="let item of cartItems">
+    {{ item.product.name }} - {{ item.product.price }} x {{ item.quantity }}
+  </div>
+</div>
+
+<button (click)="onPlaceOrder()">Place order</button>

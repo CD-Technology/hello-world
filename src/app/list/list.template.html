@@ -1,0 +1,10 @@
+<div>
+  <ng-container *ngIf="data; else emptyList">
+    <div *ngFor="item of data | async">
+      {{ item.name }}, {{ item.price }},
+      <button (click)="addToCart(item)">Add to cart</button>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyList>No items in store.</ng-template>
+</div>
